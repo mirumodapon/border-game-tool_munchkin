@@ -1,0 +1,39 @@
+#level {
+    display: grid;
+    grid-area: level;
+    grid-template-rows: 2fr 30px 1fr 50px 1fr 30px 1fr 20px 10px;
+    grid-template-columns: 1fr 50px 1fr;
+    .text {
+        grid-row-start: 8;
+        grid-row-end: 9;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        font-family: monospace;
+        text-align: center;
+        font-size: 24px; 
+    }
+    .add {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .number {
+        grid-row-start: 4;
+        grid-row-end: 5;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        font-size: 48px;
+        font-family: monospace;
+        text-align: center;
+    }
+    .sub {
+        grid-row-start: 6;
+        grid-row-end: 7;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .btn {
+        font-size: 20px;
+    }
+}
