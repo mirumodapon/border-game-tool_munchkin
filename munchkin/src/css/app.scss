@@ -6,7 +6,19 @@
     "header header"
     "level attack"
     "list list";
-    height: 100vh;
-    width: 100vw;
-    margin: 0 auto;
+}
+@media screen and (min-width: 450px) {
+    #container {
+        height: 99vh;
+        width: 350px;
+        margin: 0 auto;
+        background: white;
+    }
+}
+@media screen and (max-width: 450px) {
+    #container {
+        height: 100vh;
+        width: 100vw;
+        margin: 0 auto;
+    }
 }
