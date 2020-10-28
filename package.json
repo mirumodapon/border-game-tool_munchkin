@@ -1,5 +1,5 @@
 {
-  "name": "GameTool",
+  "name": "game-tool",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
