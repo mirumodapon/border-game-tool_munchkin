@@ -9,7 +9,8 @@ class Attack extends Component {
         this.setState({ attack: this.state.attack + 1 });
     }
     Sub = () => {
-        this.setState({ attack: this.state.attack - 1 });
+        if (this.state.attack > 0)
+            this.setState({ attack: this.state.attack - 1 });
     }
     render() {
         return (

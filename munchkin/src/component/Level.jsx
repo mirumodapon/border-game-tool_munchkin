@@ -6,10 +6,12 @@ class Level extends Component {
         this.state = { level: 0 };
     }
     Add = () => {
-        this.setState({ level: this.state.level + 1 });
+        if (this.state.level < 10)
+            this.setState({ level: this.state.level + 1 });
     }
     Sub = () => {
-        this.setState({ level: this.state.level - 1 });
+        if (this.state.level > 0)
+            this.setState({ level: this.state.level - 1 });
     }
     render() {
         return (

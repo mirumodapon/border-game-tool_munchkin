@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import '../css/connect.scss';
 import Start from './Start';
+import Room from './Room';
 
 class Connect extends Component {
     render() {
@@ -10,7 +11,7 @@ class Connect extends Component {
                 <div id="connect">
                     <Switch>
                         <Route path="/" exact component={Start} />
-                        <Route path="/room" component={Start} />
+                        <Route path="/room" component={Room} />
                     </Switch>
                 </div>
             </Router>

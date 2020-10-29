@@ -1,16 +1,12 @@
 import Header from './component/Header';
-import Level from './component/Level';
-import Attack from './component/Attack';
-import Connect from './component/Connect'
+import Main from './component/Main';
 import './css/app.scss';
 
 function App() {
   return (
     <div id="container">
       <Header></Header>
-      <Level></Level>
-      <Attack></Attack>
-      <Connect></Connect>
+      <Main></Main>
     </div>
 
   );
