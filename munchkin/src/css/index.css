@@ -6,9 +6,6 @@ body {
 
 @media screen and (min-width: 450px) {
   body {
-      height: 99vh;
-      width: 350px;
-      margin: 0 auto;
       background: gray;
   }
 }
