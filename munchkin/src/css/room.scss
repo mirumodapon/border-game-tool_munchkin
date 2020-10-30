@@ -3,4 +3,7 @@
     .icon {
         width:30px;
     }
+    &:first-child > span:first-child {
+        color: red;
+    }
 }

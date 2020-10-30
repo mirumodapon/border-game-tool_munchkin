@@ -21,8 +21,18 @@ class Room extends Component {
                     <span>{item.attack}</span>
                 </li>
         );
+        const self = (
+            <li className="listItem">
+                <span>{this.props.name}&emsp;</span>
+                <img src={goal} className="icon" alt="goal levelIcon" />
+                <span>{this.props.level}&emsp;</span>
+                <img src={attackIcon} className="icon" alt="attackIcon sword" />
+                <span>{this.props.attack}</span>
+            </li>
+        );
         return (
             <ul>
+                {self}
                 {temp}
             </ul>
         );

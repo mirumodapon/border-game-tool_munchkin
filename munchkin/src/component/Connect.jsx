@@ -11,7 +11,9 @@ class Connect extends Component {
                 <div id="connect">
                     <Switch>
                         <Route path="/" exact component={Start} />
-                        <Route path="/room" component={Room} />
+                        <Route path="/room">
+                            <Room attack="9" level="4" name="me"></Room>
+                        </Route>
                     </Switch>
                 </div>
             </Router>
