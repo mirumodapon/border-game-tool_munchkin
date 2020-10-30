@@ -24,19 +24,20 @@ wss.on('connection', (ws, req) => {
     if (temp[1] !== undefined) temp = temp[1].split('=');
     if (temp[0] === 'room') roomNumber = temp[1];
 
-    if (clients[roomNumber] == undefined) clients[roomNumber] = [];
+    ws.room = roomNumber;
 
-    clients[roomNumber] = [...clients[roomNumber], ws];
+    console.log(wss.clients.size);
 
     ws.on('message', msg => {
-        msg = JSON.parse(msg);
-        let cli = clients[msg.room];
-        if (cli != undefined)
-            cli.forEach(element => {
-                element.send(JSON.stringify(msg));
-            });
+        let m = JSON.parse(msg);
+        wss.clients.forEach(
+            element => {
+                if (element.room == m.room) element.send(msg)
+            }
+        );
     });
 
     ws.on('close', (ws) => {
+        console.log(wss.clients.size);
     });
 });
