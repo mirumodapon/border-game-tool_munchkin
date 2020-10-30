@@ -32,7 +32,7 @@ wss.on('connection', (ws, req) => {
         let m = JSON.parse(msg);
         wss.clients.forEach(
             element => {
-                if (element.room == m.room) element.send(msg)
+                if (element.room == m.room && element !== ws) element.send(msg)
             }
         );
     });
