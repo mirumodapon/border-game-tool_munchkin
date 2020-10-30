@@ -3,7 +3,6 @@ import Level from './Level';
 import Attack from './Attack';
 import Connect from './Connect';
 
-
 class Main extends Component {
     render() {
         return (

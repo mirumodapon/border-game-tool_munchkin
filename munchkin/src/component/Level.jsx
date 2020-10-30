@@ -1,28 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, useReducer, useState } from 'react';
 import '../css/level.scss';
-class Level extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { level: 0 };
-    }
-    Add = () => {
-        if (this.state.level < 10)
-            this.setState({ level: this.state.level + 1 });
-    }
-    Sub = () => {
-        if (this.state.level > 0)
-            this.setState({ level: this.state.level - 1 });
-    }
-    render() {
-        return (
-            <div id="level">
-                <button className="add btn" onClick={this.Add}>+</button>
-                <div className="number">{this.state.level}</div>
-                <button className="sub btn" onClick={this.Sub}>-</button>
-                <span className="text">Level</span>
-            </div>
-        );
-    }
+import { useDispatch, useSelector } from 'react-redux';
+import { dealLevel } from '../redux/actions';
+
+const Level = () => {
+    const dispatch = useDispatch();
+
+    const select = useSelector(
+        state => state.self
+    );
+    //const [level, setLevel] = useState(select.level);
+    return (
+        <div id="level">
+            <button className="add btn" onClick={e => { dispatch(dealLevel('add')) }}>+</button>
+            <div className="number">{select.level}</div>
+            <button className="sub btn" onClick={e => { dispatch(dealLevel('sub')) }}>-</button>
+            <span className="text">Level</span>
+        </div>
+    );
 }
 
 export default Level;
