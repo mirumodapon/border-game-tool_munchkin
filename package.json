@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon"
+    "test": "nodemon",
+    "client": "npm start --prefix munckin"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "express": "^4.17.1",
