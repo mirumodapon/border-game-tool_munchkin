@@ -1,11 +1,14 @@
 import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/start.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { editName, enterRoom } from '../redux/actions';
 function Start() {
+    const select = useSelector(
+        state => state.self
+    )
     const disp = useDispatch();
-    const [name, setName] = useState('player');
+    const [name, setName] = useState(select.name);
     const [room, setRoom] = useState('0000');
     const start = () => {
         disp(editName(name));
@@ -16,7 +19,7 @@ function Start() {
             <div id="start">
                 <div className="center">
                     <span className="text">Name</span>
-                    <input className="input" onChange={e => setName(e.target.value)} value="player" />
+                    <input className="input" onChange={e => setName(e.target.value)} value={name} />
                     <span className="text">Room Number</span>
                     <input type="number" className="input" onChange={e => setRoom(e.target.value)} />
                     <button className="btn" onClick={start}><Link to="/room">Start</Link></button>

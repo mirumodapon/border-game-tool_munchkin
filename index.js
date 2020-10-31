@@ -26,13 +26,13 @@ wss.on('connection', (ws, req) => {
 
     ws.room = roomNumber;
 
-    console.log(wss.clients.size);
+    console.log(ws.room);
 
     ws.on('message', msg => {
-        let m = JSON.parse(msg);
+        console.log(msg);
         wss.clients.forEach(
             element => {
-                if (element.room == m.room && element !== ws) element.send(msg)
+                if (element.room == ws.room && element != ws) element.send(msg)
             }
         );
     });

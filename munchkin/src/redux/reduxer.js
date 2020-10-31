@@ -1,4 +1,4 @@
-import { ADD_LEVEL, SUB_LEVEL, ADD_ATTACK, SUB_ATTACK, EDIT_NAME, ENTER_ROOM } from './constants';
+import { ADD_LEVEL, SUB_LEVEL, ADD_ATTACK, SUB_ATTACK, EDIT_NAME, ENTER_ROOM, UPDATE_INFO } from './constants';
 
 export const self = (state = {}, action) => {
     switch (action.type) {
@@ -25,6 +25,10 @@ export const self = (state = {}, action) => {
         case ENTER_ROOM:
             return {
                 ...state, room: action.payload
+            }
+        case UPDATE_INFO:
+            return {
+                ...state, other: action.payload
             }
         default:
             return state;
