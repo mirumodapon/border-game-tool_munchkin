@@ -9,7 +9,6 @@ const Level = () => {
     const select = useSelector(
         state => state.self
     );
-    //const [level, setLevel] = useState(select.level);
     return (
         <div id="level">
             <button className="add btn" onClick={e => { dispatch(dealLevel('add')) }}>+</button>

@@ -12,7 +12,10 @@ const middleware = [thunk];
 const init = {
     self: {
         level: 0,
-        attack: 0
+        attack: 0,
+        room: "0000",
+        name: "Player",
+        other: []
     }
 }
 const store = createStore(

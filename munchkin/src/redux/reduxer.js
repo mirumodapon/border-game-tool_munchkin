@@ -1,6 +1,6 @@
-import { ADD_LEVEL, SUB_LEVEL, ADD_ATTACK, SUB_ATTACK } from './constants';
+import { ADD_LEVEL, SUB_LEVEL, ADD_ATTACK, SUB_ATTACK, EDIT_NAME, ENTER_ROOM } from './constants';
 
-export const self = (state = { level: 0, attack: 0 }, action) => {
+export const self = (state = {}, action) => {
     switch (action.type) {
         case ADD_LEVEL:
             return {
@@ -18,6 +18,14 @@ export const self = (state = { level: 0, attack: 0 }, action) => {
             return {
                 ...state, attack: state.attack + ((state.attack > 0) ? -1 : 0)
             };
+        case EDIT_NAME:
+            return {
+                ...state, name: action.payload
+            }
+        case ENTER_ROOM:
+            return {
+                ...state, room: action.payload
+            }
         default:
             return state;
     }
