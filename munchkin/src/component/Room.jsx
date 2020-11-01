@@ -14,7 +14,7 @@ function Room() {
     var ws = null;
     useEffect(
         () => {
-            ws = new WebSocket(`${window.location.origin.replace(/^https/, 'ws').replace(/^http/, 'ws')}/munchkin?room=${select.room}`);
+            ws = new WebSocket(`${window.location.origin.replace(/^https/, 'wss').replace(/^http/, 'ws')}/munchkin?room=${select.room}`);
 
             ws.onopen = () => {
                 let msg = { name: select.name, attack: select.attack, level: select.level, disconnect: false };
