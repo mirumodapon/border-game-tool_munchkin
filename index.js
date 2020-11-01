@@ -13,10 +13,6 @@ const server = app.listen(PORT, () => console.log(`Server started on port ${PORT
 const wss = new SocketServer({ server, path: '/room' });
 // ws
 
-var clients = {
-    null: [],
-};
-
 wss.on('connection', (ws, req) => {
     //console.log(ws);
     let roomNumber = 'null';
@@ -26,10 +22,10 @@ wss.on('connection', (ws, req) => {
 
     ws.room = roomNumber;
 
-    console.log(ws.room);
+    // console.log(ws.room);
 
     ws.on('message', msg => {
-        console.log(msg);
+        // console.log(msg);
         wss.clients.forEach(
             element => {
                 if (element.room == ws.room && element != ws) element.send(msg)
@@ -38,6 +34,6 @@ wss.on('connection', (ws, req) => {
     });
 
     ws.on('close', (ws) => {
-        console.log(wss.clients.size);
+        // console.log(wss.clients.size);
     });
 });
