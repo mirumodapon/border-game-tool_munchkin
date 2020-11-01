@@ -66,30 +66,4 @@ function Room() {
     );
 }
 
-
-// class Room extends Component {
-//     state = {
-//         list: [
-//             { name: 'mirumo', attack: 20, level: 9 },
-//             { name: 'hank', attack: 15, level: 4 },
-//             { name: 'anthony', attack: 6, level: 8 }
-//         ],
-//         name: this.props.name,
-//         editName: <span>{this.props.name}&emsp;</span>
-//     }
-//     
-//     editName = () => {
-//         let temp = <input className="editName" onBlur={this.completee} onChange={this.change}></input>;
-//         this.setState({ editName: temp });
-//     }
-//     change = (e) => {
-//         this.setState({ name: e.target.value });
-//     }
-//     render() {
-//         
-
-
-//     }
-// }
-
 export default Room;

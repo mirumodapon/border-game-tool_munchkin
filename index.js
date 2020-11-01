@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
     });
 } else {
     app.use(express.static(path.join(__dirname, 'munchkin/build')));
-    app.get('*', function (req, res) {
+    app.get('/', function (req, res) {
         res.sendFile(path.join(__dirname, 'munchkin/build', 'index.html'));
     });
 }
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "production") {
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
-const wss = new Server({ server, path: '/room/munchkin' });
+const wss = new Server({ server, path: '/munchkin' });
 // ws
 
 wss.on('connection', (ws, req) => {
