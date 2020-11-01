@@ -41,6 +41,7 @@ const useWS = () => {
     };
     const endWebsocket = () => {
         if (ws.current) {
+            ws.current.send(JSON.stringify({ name: select.name, disconnect: true }));
             ws.current.close();
         }
     };
@@ -70,7 +71,6 @@ function Room() {
     useEffect(
         () => {
             if (ws) Send();
-            // console.log('change');
         },
         [select.name, select.attack, select.level]
     );
@@ -100,7 +100,7 @@ function Room() {
                 {temp}
             </ul>
             <br />
-            <button className="exit"><Link to="/">Exit</Link></button>
+            <button className="exit" onClick={() => { ws.current.send({ name: select.name, disconnect: true }) }}><Link to="/">Exit</Link></button>
         </Fragment>
     );
 }
