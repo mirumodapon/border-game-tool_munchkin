@@ -11,7 +11,7 @@ const useWS = () => {
     const select = useSelector((state) => state.self);
     const url = `${window.location.origin.replace(/^http/, 'ws')}/munckin?room=${select.room}`;
     const ws = useRef();
-    const loop;
+    var loop;
     const onMessage = (msg) => {
         if (msg.data == 'ask') Send();
         else disp(update(JSON.parse(msg.data)));
@@ -108,7 +108,7 @@ function Room() {
                 {temp}
             </ul>
             <br />
-            <button className="exit" onClick={() => { ws.current.send({ name: select.name, disconnect: true }) }}><Link to="/">Exit</Link></button>
+            <button className="exit" onClick={() => { ws.send({ name: select.name, disconnect: true }) }}><Link to="/">Exit</Link></button>
         </Fragment>
     );
 }
