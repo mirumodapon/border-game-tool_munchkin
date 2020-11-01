@@ -10,10 +10,12 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix munchkin && npm run build --prefix munchkin"
   },
   "dependencies": {
+    "bufferutil": "^4.0.2",
     "express": "^4.17.1",
     "express-ws": "^4.0.0",
     "jsonwebtoken": "^8.5.1",
     "require": "^2.4.20",
+    "utf-8-validate": "^5.0.3",
     "ws": "^7.3.1"
   },
   "devDependencies": {

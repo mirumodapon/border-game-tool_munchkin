@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const SocketServer = require('ws').Server;
+const { Server } = require('ws');
 
 app.use(express.json());
 
@@ -12,15 +12,17 @@ if (process.env.NODE_ENV === "production") {
     app.get('*', function (req, res) {
         res.sendFile(path.join(__dirname, 'munchkin/build', 'index.html'));
     });
+} else {
+    app.use(express.static(path.join(__dirname, 'munchkin/build')));
+    app.get('*', function (req, res) {
+        res.sendFile(path.join(__dirname, 'munchkin/build', 'index.html'));
+    });
 }
-
-
-
 
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
-const wss = new SocketServer({ server, path: '/room/munchkin' });
+const wss = new Server({ server, path: '/room/munchkin' });
 // ws
 
 wss.on('connection', (ws, req) => {
