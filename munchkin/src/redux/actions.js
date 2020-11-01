@@ -54,3 +54,10 @@ export const update = (msg) => (dispatch, getState) => {
             payload: [...temp, msg]
         });
 }
+
+export const clear = () => (dispatch) => {
+    dispatch({
+        type: UPDATE_INFO,
+        payload: []
+    });
+}

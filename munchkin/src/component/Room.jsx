@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import attackIcon from '../image/attack.png';
 import goal from '../image/goal.png';
 import '../css/room.scss';
-import { update } from '../redux/actions'
+import { update, clear } from '../redux/actions'
 import { useDispatch, useSelector } from 'react-redux';
 
 const useWS = () => {
@@ -72,6 +72,7 @@ const useWS = () => {
 }
 
 function Room() {
+    const disp = useDispatch();
     const select = useSelector(
         state => state.self
     );
@@ -108,7 +109,7 @@ function Room() {
                 {temp}
             </ul>
             <br />
-            <button className="exit" onClick={() => { ws.send({ name: select.name, disconnect: true }) }}><Link to="/">Exit</Link></button>
+            <button className="exit" onClick={() => { ws.send({ name: select.name, disconnect: true }); ws.close(); disp(clear()); }}><Link to="/">Exit</Link></button>
         </Fragment>
     );
 }
