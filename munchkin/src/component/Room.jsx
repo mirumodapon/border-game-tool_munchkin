@@ -11,6 +11,7 @@ const useWS = () => {
     const select = useSelector((state) => state.self);
     const url = `${window.location.origin.replace(/^http/, 'ws')}/munckin?room=${select.room}`;
     const ws = useRef();
+    const loop;
     const onMessage = (msg) => {
         if (msg.data == 'ask') Send();
         else disp(update(JSON.parse(msg.data)));
@@ -19,9 +20,16 @@ const useWS = () => {
         // console.log('WS client opened');
         ws.current.send(JSON.stringify({ name: select.name, level: select.level, attack: select.attack, disconnect: false }));
         ws.current.send('ask');
+        loop = setInterval(
+            () => {
+                ws.current.send('connect');
+            },
+            30000
+        )
     }
     const onClose = () => {
         ws.current.send(JSON.stringify({ name: select.name, disconnect: true }));
+        clearInterval(loop);
         // console.log('WS client closed');
     }
     const onError = () => {

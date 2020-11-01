@@ -38,11 +38,12 @@ wss.on('connection', (ws, req) => {
 
     ws.on('message', msg => {
         // console.log(msg);
-        wss.clients.forEach(
-            element => {
-                if (element.room == ws.room && element != ws) element.send(msg)
-            }
-        );
+        if (msg.data != 'connect')
+            wss.clients.forEach(
+                element => {
+                    if (element.room == ws.room && element != ws) element.send(msg)
+                }
+            );
     });
 
     ws.on('close', (ws) => {
