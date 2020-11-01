@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "nodemon",
-    "client": "npm start --prefix munckin",
-    "dev": "concurrently \"npm run test\" \"npm run client\""
+    "client": "npm start --prefix munchkin",
+    "dev": "concurrently \"npm run test\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix munchkin && npm run build --prefix munchkin"
   },
   "dependencies": {
     "express": "^4.17.1",
