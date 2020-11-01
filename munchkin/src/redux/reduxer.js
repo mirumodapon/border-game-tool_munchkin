@@ -30,6 +30,10 @@ export const self = (state = {}, action) => {
             return {
                 ...state, other: action.payload
             }
+        case 'WS':
+            return {
+                ...state, ws: action.payload
+            }
         default:
             return state;
     }
