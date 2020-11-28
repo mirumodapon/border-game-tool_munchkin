@@ -19,7 +19,7 @@ function Start() {
             <div id="start">
                 <div className="center">
                     <span className="text">Name</span>
-                    <input className="input" onChange={e => setName(e.target.value)} value={name} />
+                    <input className="input" onChange={e => setName(e.target.value)} value={name} maxlength="10" />
                     <span className="text">Room Number</span>
                     <input type="number" className="input" onChange={e => setRoom(e.target.value)} />
                     <button className="btn" onClick={start}><Link to="/room">Start</Link></button>

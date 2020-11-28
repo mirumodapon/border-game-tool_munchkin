@@ -10,6 +10,7 @@ const useWS = () => {
     const disp = useDispatch();
     const select = useSelector((state) => state.self);
     const url = `${window.location.origin.replace(/^http/, 'ws')}/munckin?room=${select.room}`;
+    //const url = `ws://localhost:5000/munckin?room=${select.room}`;
     const ws = useRef();
     var loop;
     const onMessage = (msg) => {
@@ -80,6 +81,9 @@ function Room() {
     useEffect(
         () => {
             if (ws) Send();
+            return () => {
+                if (ws) endWebsocket();
+            }
         },
         [select.name, select.attack, select.level]
     );
